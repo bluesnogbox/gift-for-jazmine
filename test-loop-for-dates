@@ -1,2 +1,12 @@
-number=18; day=`date --date='${number} days'`; count=1; while [ $count -le 365 ]; do echo "${day}:  " >> ./messages; echo "" >> ./messages; count=$(($count + 1)); number=$(($number + 1)); done
+#!/bin/bash
+
+number=18
+count=1
+while [ $count -le 365 ]; do
+  day=`date +%m/%d/%Y --date=${number}' days'`
+  echo "${day}:  " >> ./messages
+  echo "" >> ./messages
+  count=$(($count + 1))
+  number=$(($number + 1))
+done
 
