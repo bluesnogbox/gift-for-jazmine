@@ -1,8 +1,10 @@
 #!/bin/bash
 
+today=`date +%j`
+christmas=`date +%j --date="December 25"`
 
 function make_message {
-    number=18
+    number=$(($christmas - $today))
   count=1
   while [ $count -le 365 ]; do
     day=`date +%m/%d/%Y --date=${number}' days'`
