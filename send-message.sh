@@ -2,15 +2,21 @@
 
 workdir="/home/taylor/git/message-a-day"
 today=`date +%m/%d`
-# sets $limit to the number of times the specificied string appears in the file
-limit=`grep -c "Today, I want to remind you" ${workdir}/messages`
+limit=`grep -c "Today, I want to remind you" ${workdir}/messages`; limit=($limit + 1)
 randomNum=$(($RANDOM % ${limit}))
 # check if today is a special day (e.g. anniversary, birthday, etc.)
-testCommand=`grep -c ${today} ${workdir}/messages`
+testCommand=`grep -c ${today} ${workdir}/special-dates`
 
-if [ $testCommand = 0 ] ; then
-  message=`grep ${today} ${workdir}/messages`
+# make sure the random number != 0
+if [ $randomNum = 0 ] ; then
+  while [ $randomNum = 0 ]; do
+    randomNum=$(($RANDOM % ${limit}))
+  done
+fi
+
+if ! [ $testCommand = 0 ] ; then
+  message=`grep ${today} ${workdir}/special-dates`
 else
-  message=`awk '/Today,\ I\ want\ to\ remind\ you/{i++}i==$(echo $limit)' ${workdir}/messages`
+  message=`awk "NR==$randomNum { print; exit }" ${workdir}/messages`
 fi
 echo $message
