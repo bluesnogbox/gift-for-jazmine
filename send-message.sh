@@ -5,8 +5,8 @@ today=`date +%m/%d`
 limit=$(wc -l < ${workdir}/messages)
 randomNum=$(($RANDOM % ${limit}))
 randomNum=`expr $randomNum + 1`
-pushbulletDir=
-pushbulletAPI=
+pushbulletDir=P81dRv12Jp7cdza1zCbxyDidnyOl7YSV
+pushbulletAPI=ufenwEfsjAiVsKnSTs
 pushbulletDevice=
 
 # check if today is a special day (e.g. anniversary, birthday, etc.)
