@@ -2,7 +2,7 @@
 
 workdir="/home/taylor/git/message-a-day"
 today=`date +%m/%d`
-limit=`grep -c "Today, I want to remind you" ${workdir}/messages`; limit=($limit + 1)
+limit=$(wc -l < ${workdir}/messages)
 randomNum=$(($RANDOM % ${limit}))
 # check if today is a special day (e.g. anniversary, birthday, etc.)
 testCommand=`grep -c ${today} ${workdir}/special-dates`
