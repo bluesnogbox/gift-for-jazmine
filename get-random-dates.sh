@@ -1,7 +1,7 @@
 #!/bin/bash
 
 workdir="/home/taylor/git/message-a-day"
-echo "" > ${workdir}/days-for-week
+echo "" > ${workdir}/randomdays
 
 days=()
 
