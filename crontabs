@@ -1,0 +1,4 @@
+#add these to crontab
+
+30 7 * * 7 /home/taylor/git/message-a-day/get-random-dates.sh
+5 8 * * * /home/taylor/git/message-a-day/send-message.sh

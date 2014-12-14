@@ -17,4 +17,4 @@ while [[ ${days[2]} -eq ${days[1]} ]] || [[ ${days[2]} -eq ${days[0]} ]]; do
   days+=($(( ( RANDOM % 7 ) + 1 )))
 done
 
-echo ${days[@]} > ${workdir}/days-for-week
+echo ${days[@]} > ${workdir}/randomdays
