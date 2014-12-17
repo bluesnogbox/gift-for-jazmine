@@ -5,15 +5,14 @@ today=`date +%m/%d`
 limit=$(wc -l < ${workdir}/messages)
 randomNum=$(($RANDOM % ${limit}))
 randomNum=`expr $randomNum + 1`
-phoneNum="8149773797"
-carrier="txt.att.net"
+email="jehackett0@gmail.com"
 randomDays=(`cat "${workdir}/randomdays"`)
 
 # check if today is a special day (e.g. anniversary, birthday, etc.)
 testCommand=`grep -c ${today} "${workdir}/special-dates"`
 
 function send-message {
-  echo "$message" | mail -s "Hey you!" ${phoneNum}@${carrier}
+  echo "$message" | mail -s "Hey you!" "$email"
 }
 
 if ! [ $testCommand = 0 ] ; then
