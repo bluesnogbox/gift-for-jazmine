@@ -1,11 +1,11 @@
 #!/bin/bash
 
-workdir="/home/taylor/git/gift-for-jazmine"
+workdir="${HOME}/git/gift-for-jazmine"
 today=`date +%m/%d`
 limit=$(wc -l < ${workdir}/messages)
 randomNum=$(($RANDOM % ${limit}))
 randomNum=`expr $randomNum + 1`
-email="jehackett0@gmail.com"
+email=`cat ${workdir}/email`
 randomDays=(`cat "${workdir}/randomdays"`)
 
 # check if today is a special day (e.g. anniversary, birthday, etc.)
