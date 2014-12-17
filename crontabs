@@ -1,3 +1,0 @@
-#add these to crontab
-
-5 8 * * * /home/taylor/git/message-a-day/send-message.sh

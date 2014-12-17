@@ -1,6 +1,6 @@
 #!/bin/bash
 
-workdir="/home/taylor/git/message-a-day"
+workdir="/home/taylor/git/gift-for-jazmine"
 today=`date +%m/%d`
 limit=$(wc -l < ${workdir}/messages)
 randomNum=$(($RANDOM % ${limit}))
