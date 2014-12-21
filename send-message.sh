@@ -1,11 +1,11 @@
 #!/bin/bash
 
-workdir="/home/taylor/git/gift-for-jazmine"
+workdir="${HOME}/git/gift-for-jazmine"
 today=`date +%m/%d`
 limit=$(wc -l < ${workdir}/messages)
 randomNum=$(($RANDOM % ${limit}))
 randomNum=`expr $randomNum + 1`
-email="jehackett0@gmail.com"
+email=`cat ${workdir}/email`
 randomDays=(`cat "${workdir}/randomdays"`)
 
 # check if today is a special day (e.g. anniversary, birthday, etc.)
@@ -27,22 +27,21 @@ else
   fi
 fi
 
-#if [[ `date +%u` -eq 7 ]]; then
-#  echo "" > ${workdir}/randomdays
+if [[ `date +%u` -eq 7 ]]; then
+  echo "" > ${workdir}/randomdays
 
-#  days=()
+  days=()
 
-#  days+=($(( ( RANDOM % 7 ) + 1 )))
-#  days+=($(( ( RANDOM % 7 ) + 1 )))
-#  while [[ ${days[0]} -eq ${days[1]} ]]; do
-#    unset days[1]
-#    days+=($(( ( RANDOM % 7 ) + 1 )))
-#  done
-#  days+=($(( ( RANDOM % 7 ) + 1 )))
-#  while [[ ${days[2]} -eq ${days[1]} ]] || [[ ${days[2]} -eq ${days[0]} ]]; do
-#    unset days[2]
-#    days+=($(( ( RANDOM % 7 ) + 1 )))
-#  done
-#  echo ${days[@]} > ${workdir}/randomdays
-#fi
-
+  days+=($(( ( RANDOM % 7 ) + 1 )))
+  days+=($(( ( RANDOM % 7 ) + 1 )))
+  while [[ ${days[0]} -eq ${days[1]} ]]; do
+    unset days[1]
+    days+=($(( ( RANDOM % 7 ) + 1 )))
+  done
+  days+=($(( ( RANDOM % 7 ) + 1 )))
+  while [[ ${days[2]} -eq ${days[1]} ]] || [[ ${days[2]} -eq ${days[0]} ]]; do
+    unset days[2]
+    days+=($(( ( RANDOM % 7 ) + 1 )))
+  done
+  echo ${days[@]} > ${workdir}/randomdays
+fi
