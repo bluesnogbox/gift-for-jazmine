@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export BULLET_ACCESS_TOKEN=lV3oFozSwiGAhbYYfgVFueq1A6Lm8PaP
 workdir="${HOME}/git/gift-for-jazmine"
 today=`date +%m/%d`
 limit=$(wc -l < ${workdir}/messages)
@@ -12,6 +13,7 @@ randomDays=(`cat "${workdir}/randomdays"`)
 testCommand=`grep -c ${today} "${workdir}/special-dates"`
 
 function send-message {
+  /usr/bin/bullet send -d "Galaxy S III" -t "Hey you!" -m "$message"
   echo "$message" | mail -s "Hey you!" "$email"
 }
 
@@ -45,3 +47,5 @@ if [[ `date +%u` -eq 7 ]]; then
   done
   echo ${days[@]} > ${workdir}/randomdays
 fi
+
+export BULLET_ACCESS_TOKEN=P81dRv12Jp7cdza1zCbxyDidnyOl7YSV
